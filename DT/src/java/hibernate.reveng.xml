@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="DT"/>
+  <table-filter match-name="druh_akce"/>
+  <table-filter match-name="ucast_na_akci"/>
+  <table-filter match-name="jednodenni_akce"/>
+  <table-filter match-name="ubytovani"/>
+  <table-filter match-name="vicedenni_akce"/>
+  <table-filter match-name="schuzka"/>
+  <table-filter match-name="ukol"/>
+  <table-filter match-name="uzivatel"/>
+  <table-filter match-name="role"/>
+  <table-filter match-name="druh_schuzky"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13.12.2010 21:38:36 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="dt" name="model.Schuzka" table="schuzka">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="druhAkce" type="int">
+      <column name="druh_akce" not-null="true"/>
+    </property>
+    <property name="idAkce" type="int">
+      <column name="id_akce" not-null="true"/>
+    </property>
+    <property name="druhSchuzky" type="int">
+      <column name="druh_schuzky" not-null="true"/>
+    </property>
+    <property name="misto" type="string">
+      <column name="misto" not-null="true"/>
+    </property>
+    <property name="termin" type="date">
+      <column length="10" name="termin" not-null="true"/>
+    </property>
+    <property name="poradi" type="int">
+      <column name="poradi" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,7 @@
+Thumbs.db
+*.class
+*.jar
+*.war
+*.log
+build/
+dist/

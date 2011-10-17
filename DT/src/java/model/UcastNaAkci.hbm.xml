@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13.12.2010 21:38:36 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="dt" name="model.UcastNaAkci" table="ucast_na_akci">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="akceId" type="int">
+      <column name="akce_id" not-null="true"/>
+    </property>
+    <property name="uzivatelId" type="int">
+      <column name="uzivatel_id" not-null="true"/>
+    </property>
+    <property name="druhAkce" type="int">
+      <column name="druh_akce" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
