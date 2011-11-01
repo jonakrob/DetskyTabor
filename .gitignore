@@ -5,3 +5,5 @@ Thumbs.db
 *.log
 build/
 dist/
+*.eap
+*.ldb
