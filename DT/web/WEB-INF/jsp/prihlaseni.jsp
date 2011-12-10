@@ -14,6 +14,6 @@
         <title>Přihlášení na akci</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Přihlášení na akci</h1>
     </body>
 </html>

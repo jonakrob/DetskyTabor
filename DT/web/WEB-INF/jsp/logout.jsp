@@ -1,7 +1,7 @@
 <%-- 
-    Document   : odhlaseni
-    Created on : 20.12.2010, 4:18:18
-    Author     : Matej
+    Document   : logout
+    Created on : 10.12.2011, 22:10:34
+    Author     : rob
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,9 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Odhlášení z akce</title>
+        <title>Odhlášení z Informačního Systému</title>
     </head>
     <body>
-        <h1>Odhlášení z akce</h1>
+        <h1>Odhlášení z Informačního Systému</h1>
     </body>
 </html>

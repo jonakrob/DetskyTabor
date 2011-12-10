@@ -19,7 +19,8 @@
             <c:when test="${userLoggedIn}">
                 <a href="user.htm">Výpis uživatelů</a><br />
                 <a href="seznamAkci.htm">Seznam akci</a><br />
-                <a href="registrace.htm">Registrace nového uživatele</a>
+                <a href="registrace.htm">Registrace nového uživatele</a><br />
+				<a href="logout.htm">Odhlásit se</a>
             </c:when>
             <c:otherwise>
                 <p>Nejste přihlášen/a. Prosím pokračujte následujícím odkazem k přihlášení:</p>

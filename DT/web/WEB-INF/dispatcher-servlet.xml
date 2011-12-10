@@ -37,6 +37,7 @@
         <property name="formView"><value>login</value></property>
         <property name="successView"><value>succesfullLogin</value></property>
     </bean>
+	<bean id="logoutKey" class="controller.LogoutController" />
 
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
@@ -50,6 +51,7 @@
                 <prop key="main.htm">mainKey</prop>
                 <prop key="prihlaseni.htm">prihlaseniKey</prop>
                 <prop key="odhlaseni.htm">odhlaseniKey</prop>
+				<prop key="logout.htm">logoutKey</prop>
             </props>
         </property>
     </bean>
