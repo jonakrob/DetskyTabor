@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 /**
@@ -24,38 +23,25 @@ import org.springframework.web.servlet.view.RedirectView;
 
 public class OdhlaseniController extends SimpleFormController {
 
-
-      @Override
-    public ModelAndView handleRequest(HttpServletRequest hsr,
-                                      HttpServletResponse hsr1) throws Exception {
-        
-           ModelAndView mv = new ModelAndView(new RedirectView("seznamAkci.htm"));
-
-         String strDruhAkce = hsr.getParameter("druhAkce");
-            String strIdAkce = hsr.getParameter("idAkce");
-            int druhAkce = Integer.parseInt(strDruhAkce);
-            int idAkce = Integer.parseInt(strIdAkce);
-            HttpSession ses = hsr.getSession();
-            int uzivatelId = 9999;
-            if(ses.getAttribute("userLoggedIn")!=null){
-                uzivatelId = (Integer) ses.getAttribute("userLoggedIn");
-            }
-
-
-Session session =
-HibernateUtil.getSessionFactory().getCurrentSession();
-session.beginTransaction();
-
-session.createQuery("delete from UcastNaAkci where akceId = " + idAkce + " and uzivatelId = " + uzivatelId + " and druhAkce = " + druhAkce).executeUpdate();
-
-
-
-session.getTransaction().commit();
-
-return mv;
-
-  }
-
+	@Override
+	public ModelAndView handleRequest(HttpServletRequest hsr,
+			HttpServletResponse hsr1) throws Exception {
+		ModelAndView mv = new ModelAndView(new RedirectView("seznamAkci.htm"));
+		String strDruhAkce = hsr.getParameter("druhAkce");
+		String strIdAkce = hsr.getParameter("idAkce");
+		int druhAkce = Integer.parseInt(strDruhAkce);
+		int idAkce = Integer.parseInt(strIdAkce);
+		HttpSession ses = hsr.getSession();
+		int uzivatelId = 9999;
+		if (ses.getAttribute("userLoggedIn") != null) {
+			uzivatelId = (Integer) ses.getAttribute("userLoggedIn");
+		}
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.createQuery("delete from UcastNaAkci where akceId = " +
+				idAkce + " and uzivatelId = " + uzivatelId +
+				" and druhAkce = " + druhAkce).executeUpdate();
+		session.getTransaction().commit();
+		return mv;
+	}
 }
-
-
