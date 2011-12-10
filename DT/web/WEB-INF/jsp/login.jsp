@@ -29,7 +29,7 @@
                     <br />
                 Heslo:
                 <spring:bind path="heslo">
-                    <input type="text" name="${status.expression}" value="${status.value}">
+                    <input type="password" name="${status.expression}" value="${status.value}">
                 </spring:bind>
                     <br />
 
