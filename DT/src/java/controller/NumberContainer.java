@@ -2,29 +2,25 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
-
-
 
 /**
  *
  * @author Matej
  */
-public class NumberContainer extends Object{
-    private int data;
+public class NumberContainer extends Object {
 
-    public int getData() {
-        return data;
-    }
+	private int data;
 
-    public void setData(int data) {
-        this.data = data;
-    }
+	public int getData() {
+		return data;
+	}
 
-    public NumberContainer(int data){
-        this.data = data;
-    }
+	public void setData(int data) {
+		this.data = data;
+	}
 
-
+	public NumberContainer(int data) {
+		this.data = data;
+	}
 }
