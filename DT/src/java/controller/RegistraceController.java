@@ -4,6 +4,9 @@
  */
 package controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.HibernateUtil;
 import model.Uzivatel;
 import org.hibernate.Session;
@@ -18,6 +21,21 @@ public class RegistraceController extends SimpleFormController {
 		setCommandName("user");
 		setSuccessView("login");
 		setFormView("registrace");
+	}
+	
+	@Override
+	public ModelAndView handleRequest(HttpServletRequest hsr,
+			HttpServletResponse hsr1) throws Exception {
+		HttpSession httpSession = hsr.getSession();
+		int roleId = 0;
+		Object attributeRoleId = httpSession.getAttribute("roleId");
+		if (attributeRoleId != null) {
+			roleId = (Integer) attributeRoleId;
+		}
+		if (roleId != 1) {
+			return new ModelAndView(new RedirectView("main.htm"));
+		}
+		return new ModelAndView("registrace");
 	}
 
 	@Override
