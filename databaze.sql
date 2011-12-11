@@ -1,4 +1,4 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 3.2.0.1
 -- http://www.phpmyadmin.net
 --
@@ -226,13 +226,13 @@ CREATE TABLE IF NOT EXISTS `uzivatel` (
 --
 
 INSERT INTO `uzivatel` (`id`, `login`, `heslo`, `jmeno`, `Email`, `telefon`, `roleID`) VALUES
-(1, 'vašek', 'test', 'Václav Klaus', 'vasek@hrad.cz', 123456789, 1),
-(2, 'dinosaurus', 'test', 'Miroslav Kalousek', 'mirek@top09.cz', 789445612, 2),
-(3, 'doktor', 'test', 'doc. MUDr.Leoš Heger, CSc.', 'leos@mares.cz', 155, 3),
-(4, 'zelenáč', 'test', 'Pavel Drobil', 'mzp@kdovico.cz', 123456744, 4),
-(5, 'ráďa', 'test', 'Radek John', 'nemamrad@policajty.cz', 158, 5),
+(1, 'hlavnivedouci', 'test', 'Václav Klaus', 'vasek@hrad.cz', 123456789, 1),
+(2, 'hospodar', 'test', 'Miroslav Kalousek', 'mirek@top09.cz', 789445612, 2),
+(3, 'zdravotnik', 'test', 'doc. MUDr.Leoš Heger, CSc.', 'leos@mares.cz', 155, 3),
+(4, 'kuchar', 'test', 'Pavel Drobil', 'mzp@kdovico.cz', 123456744, 4),
+(5, 'oddilovyvedouci', 'test', 'Radek John', 'nemamrad@policajty.cz', 158, 5),
 (6, 'sexyMozek', 'test', 'Jiří Paroubek', 'kdozvasto@ma.cz', 111111111, 5),
-(7, 'míra', 'test', 'Mirek Topolánek', 'kalousku@jsijednicka.cz', 456987411, 6),
+(7, 'praktikant', 'test', 'Mirek Topolánek', 'kalousku@jsijednicka.cz', 456987411, 6),
 (8, 'standa', 'test', 'Stanislav Gross', 'tafloridase@vyplatila.cz', 459745221, 6),
 (9, 'novej', 'test', 'František Novák', 'mail@mail.cz', 123456789, 0);
 -- (10, 'gergeg', 'test', 'sÄ?ttÅ?zÅ¾uh Ä?Å?z  Ä?zÅ¾Ä?z', 'rer@qewfw.cc', 748596587, 0);
