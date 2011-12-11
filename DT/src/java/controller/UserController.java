@@ -45,13 +45,13 @@ public class UserController implements Controller {
 			e.printStackTrace();
 		}
 		modelAndView.addObject("message", out);
-		HttpSession hsn = request.getSession();
-		if (hsn.getAttribute("userLoggedIn") != null) {
-			int userId = (Integer) hsn.getAttribute("userLoggedIn");
+		if (httpSession.getAttribute("loggedInUserId") != null) {
+			int userId = (Integer) httpSession.getAttribute("loggedInUserId");
 			modelAndView.addObject("userId", userId);
-                        modelAndView.addObject("userLoggedIn", true);
+			modelAndView.addObject("loggedInUserId", userId);
 		} else {
-			modelAndView.addObject("userLoggedIn", false);
+			modelAndView.addObject("loggedInUserId", 0);
+			return new ModelAndView(new RedirectView("main.htm"));
 		}
 		//NumberContainer ai = new NumberContainer(1);
 		//hsn.setAttribute("idAkce", ai);

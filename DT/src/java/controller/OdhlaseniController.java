@@ -23,8 +23,8 @@ public class OdhlaseniController extends SimpleFormController {
 		int idAkce = Integer.parseInt(strIdAkce);
 		HttpSession httpSession = request.getSession();
 		int uzivatelId = 9999;
-		if (httpSession.getAttribute("userLoggedIn") != null) {
-			uzivatelId = (Integer) httpSession.getAttribute("userLoggedIn");
+		if (httpSession.getAttribute("loggedInUserId") != null) {
+			uzivatelId = (Integer) httpSession.getAttribute("loggedInUserId");
 		}
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();

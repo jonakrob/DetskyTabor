@@ -22,7 +22,7 @@ public class VypisAkceController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ModelAndView ModelAndView = new ModelAndView("vypisAkce");
+		ModelAndView modelAndView = new ModelAndView("vypisAkce");
 		//parsuje data z url, prevadi native int
 		String strDruhAkce = request.getParameter("druhAkce");
 		String strIdAkce = request.getParameter("idAkce");
@@ -56,27 +56,28 @@ public class VypisAkceController implements Controller {
 			List vsichniUzivatele = session.createQuery("from Uzivatel").list();
 			//mv.addObject("users", result);
 			session.getTransaction().commit();
-			ModelAndView.addObject("nadpisAkce", nadpisSeznamu);
-			ModelAndView.addObject("druhAkce", druhAkce);
-			ModelAndView.addObject("detailyAkce", podrobnostiAkce);
-			ModelAndView.addObject("prihlaseneUcasti", prihlaseneUcasti);
-			ModelAndView.addObject("vsichniUzivatele", vsichniUzivatele);
+			modelAndView.addObject("nadpisAkce", nadpisSeznamu);
+			modelAndView.addObject("druhAkce", druhAkce);
+			modelAndView.addObject("detailyAkce", podrobnostiAkce);
+			modelAndView.addObject("prihlaseneUcasti", prihlaseneUcasti);
+			modelAndView.addObject("vsichniUzivatele", vsichniUzivatele);
 			boolean jeVicedenni;
 			if (druhAkce == 1) {
 				jeVicedenni = false;
 			} else {
 				jeVicedenni = true;
 			}
-			ModelAndView.addObject("jeVicedenni", jeVicedenni);
+			modelAndView.addObject("jeVicedenni", jeVicedenni);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-                HttpSession session = request.getSession();
-		if (session.getAttribute("userLoggedIn") != null) {
-			ModelAndView.addObject("userLoggedIn", true);
+		HttpSession httpSession = request.getSession();
+		Object loggedInUserId = httpSession.getAttribute("loggedInUserId");
+		if (loggedInUserId != null) {
+			modelAndView.addObject("loggedInUserId", (Integer) loggedInUserId);
 		} else {
-			ModelAndView.addObject("userLoggedIn", false);
+			modelAndView.addObject("loggedInUserId", 0);
 		}
-		return ModelAndView;
+		return modelAndView;
 	}
 }

@@ -28,8 +28,8 @@ public class PrihlaseniController extends SimpleFormController {
 		int idAkce = Integer.parseInt(request.getParameter("idAkce"));
 		HttpSession ses = request.getSession();
 		int uzivatelId = 9999;
-		if (ses.getAttribute("userLoggedIn") != null) {
-			uzivatelId = (Integer) ses.getAttribute("userLoggedIn");
+		if (ses.getAttribute("loggedInUserId") != null) {
+			uzivatelId = (Integer) ses.getAttribute("loggedInUserId");
 		}
 		UcastNaAkci ucast = new UcastNaAkci();
 		ucast.setAkceId(idAkce);

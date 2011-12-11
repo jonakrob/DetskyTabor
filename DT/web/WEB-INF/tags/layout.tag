@@ -17,7 +17,7 @@
                     <a class="brand" href="#">Dětské tábory</a>
                     <ul class="nav">
                         <c:choose>
-                            <c:when test="${userLoggedIn}">
+                            <c:when test="${loggedInUserId != 0}">
                                 <c:if test="${roleId == 1}">
                                     <li><a href="user.htm">Výpis uživatelů</a></li>
                                     <li><a href="registrace.htm">Přidat nového uživatele</a></li>

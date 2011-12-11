@@ -13,9 +13,13 @@ public class LogoutController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		session.setAttribute("userLoggedIn", null);
-		ModelAndView modelAndView = new ModelAndView(new RedirectView("main.htm"));
+		HttpSession httpSession = request.getSession();
+		httpSession.setAttribute("loggedInUserId", null);
+		httpSession.setAttribute("roleId", 0);
+		//ModelAndView modelAndView = new ModelAndView(new RedirectView("main.htm"));
+		ModelAndView modelAndView = new ModelAndView("main");
+		modelAndView.addObject("loggedInUserId", 0);
+		modelAndView.addObject("roleId", 0);
 		return modelAndView;
 	}
 }

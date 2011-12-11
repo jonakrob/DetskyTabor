@@ -22,26 +22,27 @@ public class RegistraceController extends SimpleFormController {
 		setSuccessView("login");
 		setFormView("registrace");
 	}
-	
+
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		HttpSession httpSession = request.getSession();
 		int roleId = 0;
-		Object attributeRoleId = httpSession.getAttribute("roleId");
-		if (attributeRoleId != null) {
-			roleId = (Integer) attributeRoleId;
+		Object roleIdAttribute = httpSession.getAttribute("roleId");
+		if (roleIdAttribute != null) {
+			roleId = (Integer) roleIdAttribute;
 		}
 		if (roleId != 1) {
 			return new ModelAndView(new RedirectView("main.htm"));
 		}
-                ModelAndView modelAndView = new ModelAndView("registrace");
-		if (httpSession.getAttribute("userLoggedIn") != null) {
-			modelAndView.addObject("userLoggedIn", true);
+		ModelAndView modelAndView = new ModelAndView("registrace");
+		if (httpSession.getAttribute("loggedInUserId") != null) {
+			int userId = (Integer) httpSession.getAttribute("loggedInUserId");
+			modelAndView.addObject("loggedInUserId", userId);
 		} else {
-			modelAndView.addObject("userLoggedIn", false);
+			modelAndView.addObject("loggedInUserId", 0);
 		}
-		return modelAndView;
+		return super.handleRequest(request, response);
 	}
 
 	@Override

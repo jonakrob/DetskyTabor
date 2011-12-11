@@ -25,15 +25,15 @@ public class SeznamAkciController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ModelAndView mv = new ModelAndView("seznamAkci");
-		HttpSession ses = request.getSession();
+		ModelAndView modelAndView = new ModelAndView("seznamAkci");
+		HttpSession httpSession = request.getSession();
 		int uzivatelId = 9999;
-		if (ses.getAttribute("userLoggedIn") != null) {
-			uzivatelId = (Integer) ses.getAttribute("userLoggedIn");
-                        mv.addObject("userLoggedIn", true);
+		if (httpSession.getAttribute("loggedInUserId") != null) {
+			uzivatelId = (Integer) httpSession.getAttribute("loggedInUserId");
+			modelAndView.addObject("loggedInUserId", uzivatelId);
 		} else {
-                    mv.addObject("userLoggedIn", false);
-                }
+			modelAndView.addObject("loggedInUserId", 0);
+		}
 		try {
 			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
@@ -67,13 +67,13 @@ public class SeznamAkciController implements Controller {
 					}
 				}
 			}
-			mv.addObject("jednodenni", jednodenniVsechny);
-			mv.addObject("vicedenni", vicedenniVsechny);
+			modelAndView.addObject("jednodenni", jednodenniVsechny);
+			modelAndView.addObject("vicedenni", vicedenniVsechny);
 			//session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		//mv.addObject("message", out);
-		return mv;
+		return modelAndView;
 	}
 }

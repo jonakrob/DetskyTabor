@@ -43,20 +43,20 @@ public class LoginController extends SimpleFormController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-                ModelAndView modelAndView = new ModelAndView("succesfullLogin");
+		ModelAndView modelAndView = new ModelAndView("succesfullLogin");
 		if (userId != 0) {
 			String messageStatus = "Byl/a jste úspěšně přihlášen/a jako " + uzivatel.getJmeno();
 			String messageLink = "Můžete pokračovat <a href=\"main.htm\">zde - ></a>";
 			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 			HttpSession session = request.getSession();
-			session.setAttribute("userLoggedIn", userId);
-			session.setAttribute("roleId", roleId);	
+			session.setAttribute("loggedInUserId", userId);
+			session.setAttribute("roleId", roleId);
 			modelAndView.addObject("messageStatus", messageStatus);
 			modelAndView.addObject("messageLink", messageLink);
-                        modelAndView.addObject("userLoggedIn", true);
+			modelAndView.addObject("loggedInUserId", userId);
 			return modelAndView;
 		} else {
-                        modelAndView.addObject("userLoggedIn", false);
+			modelAndView.addObject("loggedInUserId", 0);
 			modelAndView = new ModelAndView(new RedirectView("login.htm"));
 			return modelAndView;
 		}

@@ -10,13 +10,14 @@ public class MainController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
-			HttpServletResponse hsr1) throws Exception {
+			HttpServletResponse response) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("main");
-		HttpSession session = request.getSession();
-		if (session.getAttribute("userLoggedIn") != null) {
-			modelAndView.addObject("userLoggedIn", true);
+		HttpSession httpSession = request.getSession();
+		Object loggedInUserId = httpSession.getAttribute("loggedInUserId");
+		if (loggedInUserId != null) {
+			modelAndView.addObject("loggedInUserId", (Integer) loggedInUserId);
 		} else {
-			modelAndView.addObject("userLoggedIn", false);
+			modelAndView.addObject("loggedInUserId", 0);
 		}
 		return modelAndView;
 	}

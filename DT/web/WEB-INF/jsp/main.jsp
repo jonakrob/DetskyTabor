@@ -10,7 +10,7 @@
 <z:layout pageTitle="Informační systém pro dětský oddíl">
 
     <c:choose>
-        <c:when test="${userLoggedIn}">
+        <c:when test="${loggedInUserId != 0}">
             <c:if test="${roleId == 1}">
                 <a href="user.htm">Výpis uživatelů</a><br />
                 <a href="registrace.htm">Přidat nového uživatele</a><br />
