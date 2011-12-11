@@ -6,38 +6,41 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8_czech_ci">
-
-        <title>Přihlášení do Informačního Systému</title>
-    </head>
-    <body>
-        <h3>Vyplňte, prosím, své přihlašovací údaje:</h3>
+<z:layout pageTitle="Přihlášení do Informačního Systému">
+    <h3>Vyplňte, prosím, své přihlašovací údaje</h3>
         <spring:nestedPath path="name">
 
-            <form:form method="POST" commandName="loginForm">
-                Přihlašovací jméno:
-                <spring:bind path="login">
-                    <input type="text" name="${status.expression}" value="${status.value}">
-                </spring:bind>
-                    <br />
-                Heslo:
-                <spring:bind path="heslo">
-                    <input type="text" name="${status.expression}" value="${status.value}">
-                </spring:bind>
-                    <br />
-
-                <input type="submit" value="OK">
+            <form:form method="POST" commandName="loginForm" class="form-stacked">
+                
+                <div class="clearfix">
+                    <label for="${status.expression}">Přihlašovací údaje</label>
+                    <div class="input">
+                        <spring:bind path="login">
+                            <input type="text" class="xlarge" size="30" name="${status.expression}" value="${status.value}">
+                        </spring:bind>
+                    </div>
+                </div>
+                    
+                <div class="clearfix">
+                    <label for="${status.expression}">Heslo</label>
+                    <div class="input">
+                        <spring:bind path="heslo">
+                            <input type="password" class="xlarge" size="30" name="${status.expression}" value="${status.value}">
+                        </spring:bind>
+                    </div>
+                </div>
+                    
+                <div class="clearfix">
+                    <div class="input">
+                        <input type="submit" class="btn primary" value="Přihlásit">
+                    </div>
+                </div>
 
             </form:form>
         </spring:nestedPath>
-                <p>Pokud nejste zaregistrováni do systému, můžete tak učinit <a href="registrace.htm">zde</a></p>
-    </body>
-</html>
-
+                <!--<p>Pokud nejste zaregistrováni do systému, můžete tak učinit <a href="registrace.htm">zde</a></p>-->
+</z:layout>

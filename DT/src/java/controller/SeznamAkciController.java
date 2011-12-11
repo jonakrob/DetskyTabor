@@ -9,18 +9,17 @@ package controller;
  *
  * @author Matej
  */
-import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.HibernateUtil;
-import java.util.List;
+import org.hibernate.Session;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+import java.util.*;
 import javax.servlet.http.HttpSession;
 import model.JednodenniAkce;
 import model.UcastNaAkci;
 import model.VicedenniAkce;
-import org.hibernate.Session;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
 public class SeznamAkciController implements Controller {
 

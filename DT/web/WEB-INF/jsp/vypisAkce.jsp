@@ -5,41 +5,32 @@
 --%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Výpis akcí</title>
-    </head>
-    <body>
-        <h1>Detaily akce:</h1>
-
+<z:layout pageTitle="Detail akce">
+    
         <c:forEach items="${detailyAkce}" var="detail">
-            <table>
-                <tr>
-                     <td>Typ akce:</td>
-                     <td>Místo konání:</td>
-                     <td>Termín konání:</td>
-                     <td>Cena:</td>
-                     <c:if test="${jeVicedenni}">
-                        <td>Ubytování:</td>
-                     </c:if>
-                </tr>
-                <tr>
-                     <td>${nadpisAkce}</td>
-                     <td><c:out value="${detail.misto}"></c:out></td>
-                     <td><c:out value="${detail.termin}"></c:out></td>
-                     <td><c:out value="${detail.cena}"></c:out></td>
-                     <c:if test="${jeVicedenni}">
-                        <td><c:out value="${detail.ubytovani}"></c:out></td>
-                     </c:if>
-                </tr>
-            </table>
+            <dl>
+                 <dt>Typ akce</dt>
+                 <dd>${nadpisAkce}</dd>
+
+                 <dt>Místo konání</dt>
+                 <dd><c:out value="${detail.misto}"></c:out></dd>
+
+                 <dt>Termín konání</dt>
+                 <dd><c:out value="${detail.termin}"></c:out></dd>
+
+                 <dt>Cena (v Kč)</dt>
+                 <dd><c:out value="${detail.cena}"></c:out></dd>
+
+                 <c:if test="${jeVicedenni}">
+                    <dt>Ubytování</dt>
+                    <dd><c:out value="${detail.ubytovani}"></c:out></dd>
+                 </c:if>
+            </dl>    
         </c:forEach>
-        <h1>Přihlášení účastníci:</h1>
+        <h2>Přihlášení účastníci</h2>
             <ul>
                 <c:forEach items="${prihlaseneUcasti}" var="ucast">
                     <c:forEach items="${vsichniUzivatele}" var="uziv">
@@ -50,5 +41,5 @@
                 </c:forEach>
             </ul>
         <a href="seznamAkci.htm"><- zpět na výpis všech akcí</a>
-    </body>
-</html>
+                
+</z:layout>
