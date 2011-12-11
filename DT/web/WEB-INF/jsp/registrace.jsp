@@ -29,13 +29,13 @@
             <form:form method="POST" commandName="user">
 
                 Jméno <form:errors path="jmeno" cssClass="error"/><br />
-		<form:input path="jmeno"/><br /><br />
+				<form:input path="jmeno"/><br /><br />
 
                 Přihlašovací jméno <form:errors path="login" cssClass="error" /><br />
                 <form:input path="login"/><br /><br />
 
                 Heslo <form:errors path="heslo" cssClass="error" /><br />
-                <form:input path="heslo"/><br /><br />
+                <form:input type="password" path="heslo"/><br /><br />
 
                 E-mail <form:errors path="email" cssClass="error" /><br />
                 <form:input path="email"/><br /><br />
