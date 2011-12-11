@@ -20,12 +20,12 @@ import java.util.*;
 public class VypisAkceController implements Controller {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest hsr,
-			HttpServletResponse hsr1) throws Exception {
-		ModelAndView mv = new ModelAndView("vypisAkce");
+	public ModelAndView handleRequest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView ModelAndView = new ModelAndView("vypisAkce");
 		//parsuje data z url, prevadi native int
-		String strDruhAkce = hsr.getParameter("druhAkce");
-		String strIdAkce = hsr.getParameter("idAkce");
+		String strDruhAkce = request.getParameter("druhAkce");
+		String strIdAkce = request.getParameter("idAkce");
 		int druhAkce = Integer.parseInt(strDruhAkce);
 		int idAkce = Integer.parseInt(strIdAkce);
 		String nazevTabulky = "";
@@ -56,21 +56,21 @@ public class VypisAkceController implements Controller {
 			List vsichniUzivatele = session.createQuery("from Uzivatel").list();
 			//mv.addObject("users", result);
 			session.getTransaction().commit();
-			mv.addObject("nadpisAkce", nadpisSeznamu);
-			mv.addObject("druhAkce", druhAkce);
-			mv.addObject("detailyAkce", podrobnostiAkce);
-			mv.addObject("prihlaseneUcasti", prihlaseneUcasti);
-			mv.addObject("vsichniUzivatele", vsichniUzivatele);
+			ModelAndView.addObject("nadpisAkce", nadpisSeznamu);
+			ModelAndView.addObject("druhAkce", druhAkce);
+			ModelAndView.addObject("detailyAkce", podrobnostiAkce);
+			ModelAndView.addObject("prihlaseneUcasti", prihlaseneUcasti);
+			ModelAndView.addObject("vsichniUzivatele", vsichniUzivatele);
 			boolean jeVicedenni;
 			if (druhAkce == 1) {
 				jeVicedenni = false;
 			} else {
 				jeVicedenni = true;
 			}
-			mv.addObject("jeVicedenni", jeVicedenni);
+			ModelAndView.addObject("jeVicedenni", jeVicedenni);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return mv;
+		return ModelAndView;
 	}
 }

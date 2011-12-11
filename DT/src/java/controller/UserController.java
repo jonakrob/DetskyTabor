@@ -21,9 +21,9 @@ import org.springframework.web.servlet.view.RedirectView;
 public class UserController implements Controller {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest hsr,
-			HttpServletResponse hsr1) throws Exception {
-		HttpSession httpSession = hsr.getSession();
+	public ModelAndView handleRequest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		HttpSession httpSession = request.getSession();
 		int roleId = 0;
 		Object attributeRoleId = httpSession.getAttribute("roleId");
 		if (attributeRoleId != null) {
@@ -32,28 +32,28 @@ public class UserController implements Controller {
 		if (roleId != 1) {
 			return new ModelAndView(new RedirectView("main.htm"));
 		}
-		ModelAndView mv = new ModelAndView("user");
+		ModelAndView modelAndView = new ModelAndView("user");
 		String out = "Výpis uživatelů: ";
 		try {
 			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 			List result = session.createQuery("from Uzivatel").list();
 			//List role = session.createQuery("from Role").list();
-			mv.addObject("users", result);
+			modelAndView.addObject("users", result);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mv.addObject("message", out);
-		HttpSession hsn = hsr.getSession();
+		modelAndView.addObject("message", out);
+		HttpSession hsn = request.getSession();
 		if (hsn.getAttribute("userLoggedIn") != null) {
 			int userId = (Integer) hsn.getAttribute("userLoggedIn");
-			mv.addObject("userId", userId);
+			modelAndView.addObject("userId", userId);
 		}
 		//NumberContainer ai = new NumberContainer(1);
 		//hsn.setAttribute("idAkce", ai);
 		//NumberContainer da = new NumberContainer(2);
 		//hsn.setAttribute("druhAkce", da);
-		return mv;
+		return modelAndView;
 	}
 }

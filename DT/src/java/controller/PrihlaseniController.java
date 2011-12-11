@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.HibernateUtil;
-//import model.Uzivatel;
 import model.UcastNaAkci;
-//import model.Uzivatel;
 import org.hibernate.Session;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -23,14 +21,12 @@ import org.springframework.web.servlet.view.RedirectView;
 public class PrihlaseniController extends SimpleFormController {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest hsr,
-			HttpServletResponse hsr1) throws Exception {
-		ModelAndView mv = new ModelAndView(new RedirectView("seznamAkci.htm"));
-		String strDruhAkce = hsr.getParameter("druhAkce");
-		String strIdAkce = hsr.getParameter("idAkce");
-		int druhAkce = Integer.parseInt(strDruhAkce);
-		int idAkce = Integer.parseInt(strIdAkce);
-		HttpSession ses = hsr.getSession();
+	public ModelAndView handleRequest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView modelAndView = new ModelAndView(new RedirectView("seznamAkci.htm"));
+		int druhAkce = Integer.parseInt(request.getParameter("druhAkce"));
+		int idAkce = Integer.parseInt(request.getParameter("idAkce"));
+		HttpSession ses = request.getSession();
 		int uzivatelId = 9999;
 		if (ses.getAttribute("userLoggedIn") != null) {
 			uzivatelId = (Integer) ses.getAttribute("userLoggedIn");
@@ -43,6 +39,6 @@ public class PrihlaseniController extends SimpleFormController {
 		session.beginTransaction();
 		session.save(ucast);
 		session.getTransaction().commit();
-		return mv;
+		return modelAndView;
 	}
 }

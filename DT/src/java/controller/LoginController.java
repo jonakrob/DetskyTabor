@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
-/**
- *
- * @author Matej
- */
 import org.hibernate.Session;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import model.HibernateUtil;

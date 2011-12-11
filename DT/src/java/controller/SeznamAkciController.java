@@ -24,10 +24,10 @@ import org.springframework.web.servlet.mvc.Controller;
 public class SeznamAkciController implements Controller {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest hsr,
-			HttpServletResponse hsr1) throws Exception {
+	public ModelAndView handleRequest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		ModelAndView mv = new ModelAndView("seznamAkci");
-		HttpSession ses = hsr.getSession();
+		HttpSession ses = request.getSession();
 		int uzivatelId = 9999;
 		if (ses.getAttribute("userLoggedIn") != null) {
 			uzivatelId = (Integer) ses.getAttribute("userLoggedIn");

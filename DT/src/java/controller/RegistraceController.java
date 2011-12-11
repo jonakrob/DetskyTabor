@@ -24,9 +24,9 @@ public class RegistraceController extends SimpleFormController {
 	}
 	
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest hsr,
-			HttpServletResponse hsr1) throws Exception {
-		HttpSession httpSession = hsr.getSession();
+	public ModelAndView handleRequest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		HttpSession httpSession = request.getSession();
 		int roleId = 0;
 		Object attributeRoleId = httpSession.getAttribute("roleId");
 		if (attributeRoleId != null) {
