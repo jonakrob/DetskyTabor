@@ -19,9 +19,9 @@
             <c:when test="${userLoggedIn}">
 				<c:if test="${roleId == 1}">
 					<a href="user.htm">Výpis uživatelů</a><br />
+					<a href="registrace.htm">Přidat nového uživatele</a><br />
 				</c:if>
                 <a href="seznamAkci.htm">Seznam akcí</a><br />
-                <a href="registrace.htm">Registrace nového uživatele</a><br />
 				<a href="logout.htm">Odhlásit se</a>
             </c:when>
             <c:otherwise>

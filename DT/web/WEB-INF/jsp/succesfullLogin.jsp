@@ -16,6 +16,7 @@
         <title>Úspěšný login</title>
     </head>
     <body>
+		<h1>Úspěšný login</h1>
         <h3>${messageStatus}</h3>
         <p>${messageLink}</p>
 

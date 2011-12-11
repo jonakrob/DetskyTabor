@@ -14,7 +14,7 @@
         <title>seznam akcí</title>
     </head>
     <body>
-        <h1>seznam akcí</h1>
+        <h1>Seznam akcí</h1>
             <h2>Jednodenní akce:</h2>
                 <table>
                     <tr>

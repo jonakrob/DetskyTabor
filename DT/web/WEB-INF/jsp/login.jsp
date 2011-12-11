@@ -18,6 +18,7 @@
         <title>Přihlášení do Informačního Systému</title>
     </head>
     <body>
+		<h1>Přihlášení do Informačního Systému</h1>
         <h3>Vyplňte, prosím, své přihlašovací údaje:</h3>
         <spring:nestedPath path="name">
 

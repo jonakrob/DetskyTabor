@@ -15,7 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8_czech_ci">
 
-        <title>Přidat nového uživatele</title>
+        <title>Přidání nového uživatele</title>
         <style type="text/css" >
 			.error {
 				color: red;
@@ -23,6 +23,7 @@
 		</style>
     </head>
     <body>
+		<h1>Přidání nového uživatele</h1>
         <h3>Vyplňte prosím osobní údaje uživatele:</h3>
         <spring:nestedPath path="name">
 
