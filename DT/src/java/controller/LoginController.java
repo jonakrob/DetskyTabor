@@ -29,6 +29,7 @@ public class LoginController extends SimpleFormController {
 		String username = login.getLogin();
 		String heslo = login.getHeslo();
 		int userId = 0;
+		int roleId = 0;
 		Uzivatel uzivatel = new Uzivatel();
 		// uzivatel.setLogin(username);
 		//uzivatel.setHeslo(heslo);
@@ -43,6 +44,7 @@ public class LoginController extends SimpleFormController {
 				if (user.getLogin().equals(username) && user.getHeslo().equals(heslo)) {
 					userId = user.getId();
 					uzivatel = user;
+					roleId = user.getRoleId();
 					break;
 				}
 			}
@@ -53,8 +55,9 @@ public class LoginController extends SimpleFormController {
 			String messageStatus = "Byl/a jste úspěšně přihlášen/a jako " + uzivatel.getJmeno();
 			String messageLink = "Můžete pokračovat <a href=\"main.htm\">zde - ></a>";
 			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-			HttpSession hts = request.getSession();
-			hts.setAttribute("userLoggedIn", userId);
+			HttpSession session = request.getSession();
+			session.setAttribute("userLoggedIn", userId);
+			session.setAttribute("roleId", roleId);
 			ModelAndView modelAndView = new ModelAndView("succesfullLogin");
 			modelAndView.addObject("messageStatus", messageStatus);
 			modelAndView.addObject("messageLink", messageLink);

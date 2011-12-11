@@ -22,6 +22,15 @@ public class UserController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest hsr,
 			HttpServletResponse hsr1) throws Exception {
+		HttpSession httpSession = hsr.getSession();
+		int roleId = 0;
+		Object attributeRoleId = httpSession.getAttribute("roleId");
+		if (attributeRoleId != null) {
+			roleId = (Integer) attributeRoleId;
+		}
+		if (roleId != 1) {
+			return new ModelAndView("main");
+		}
 		ModelAndView mv = new ModelAndView("user");
 		String out = "Výpis uživatelů: ";
 		try {
