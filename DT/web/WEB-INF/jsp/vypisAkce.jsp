@@ -30,7 +30,7 @@
                  </c:if>
             </dl>    
         </c:forEach>
-        <h2>Přihlášení účastníci</h2>
+        <h3>Přihlášení účastníci</h3>
             <ul>
                 <c:forEach items="${prihlaseneUcasti}" var="ucast">
                     <c:forEach items="${vsichniUzivatele}" var="uziv">
