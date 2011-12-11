@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.web.servlet.view.RedirectView;
 
 public class UserController implements Controller {
 
@@ -29,7 +30,7 @@ public class UserController implements Controller {
 			roleId = (Integer) attributeRoleId;
 		}
 		if (roleId != 1) {
-			return new ModelAndView("main");
+			return new ModelAndView(new RedirectView("main.htm"));
 		}
 		ModelAndView mv = new ModelAndView("user");
 		String out = "Výpis uživatelů: ";

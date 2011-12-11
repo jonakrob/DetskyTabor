@@ -7,13 +7,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8_czech_ci">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- _czech_ci -->
 
         <title>Přihlášení do Informačního Systému</title>
     </head>
@@ -26,18 +26,18 @@
                 <spring:bind path="login">
                     <input type="text" name="${status.expression}" value="${status.value}">
                 </spring:bind>
-                    <br />
+				<br />
                 Heslo:
                 <spring:bind path="heslo">
                     <input type="password" name="${status.expression}" value="${status.value}">
                 </spring:bind>
-                    <br />
+				<br />
 
                 <input type="submit" value="OK">
 
             </form:form>
         </spring:nestedPath>
-                <p>Pokud nejste zaregistrováni do systému, můžete tak učinit <a href="registrace.htm">zde</a></p>
+		<!-- <p>Pokud nejste zaregistrováni do systému, můžete tak učinit <a href="registrace.htm">zde</a></p> -->
     </body>
 </html>
 

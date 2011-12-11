@@ -17,7 +17,7 @@
         <h1>Informační systém pro dětský oddíl</h1>
         <c:choose>
             <c:when test="${userLoggedIn}">
-				<c:if test="${roleId == '1'}">
+				<c:if test="${roleId == 1}">
 					<a href="user.htm">Výpis uživatelů</a><br />
 				</c:if>
                 <a href="seznamAkci.htm">Seznam akcí</a><br />

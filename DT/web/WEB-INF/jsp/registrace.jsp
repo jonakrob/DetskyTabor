@@ -15,15 +15,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8_czech_ci">
 
-        <title>Registrace nového uživatele</title>
+        <title>Přidat nového uživatele</title>
         <style type="text/css" >
-    .error {
-    	color: red;
-    }
-  </style>
+			.error {
+				color: red;
+			}
+		</style>
     </head>
     <body>
-        <h3>Vyplňte, prosím, své osobní údaje:</h3>
+        <h3>Vyplňte prosím osobní údaje uživatele:</h3>
         <spring:nestedPath path="name">
 
             <form:form method="POST" commandName="user">
@@ -43,17 +43,15 @@
                 Telefon <form:errors path="telefon" cssClass="error" /><br />
                 <form:input path="telefon"/><br /><br />
 
-
-
-                    Role:
+				Role:
                 <spring:bind path="roleId">
                     <select name="${status.expression}">
-                            <option value="1">Hlavní vedoucí</option>
-                            <option value="2">Hospodář</option>
-                            <option value="3">Zdravotník</option>
-                            <option value="4">Kuchař</option>
-                            <option value="5">Oddílový vedoucí</option>
-                            <option value="6">Praktikant</option>
+						<option value="1">Hlavní vedoucí</option>
+						<option value="2">Hospodář</option>
+						<option value="3">Zdravotník</option>
+						<option value="4">Kuchař</option>
+						<option value="5">Oddílový vedoucí</option>
+						<option value="6">Praktikant</option>
                     </select>
                 </spring:bind>
 
